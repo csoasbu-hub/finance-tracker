@@ -1,29 +1,28 @@
-
-history = []  # Наш список-склад
+history = []  # Our data storage
 
 while True:
-    print("\n1 - Add (Добавить), 2 - Show (Показать), 3 - Exit (Выход)")
-    choice = input("Выбери действие: ")
+    print("\n1 - Add Expense, 2 - Show History, 3 - Exit")
+    choice = input("Select an option: ")
     
     if choice == "1":
-        # 1. Спроси название (item)
-        item = input("Что купил? ")
-        # 2. Спроси цену (price) и преврати в int()
-        price = int(input("Сколько стоит? "))
+        # Input data
+        item = input("What did you buy? ")
+        price = int(input("How much did it cost? "))
         
-        # 3. Создай словарь и добавь его в список
+        # Create a dictionary and add it to the list
         new_entry = {"item": item, "price": price}
         history.append(new_entry)
-        print("Сохранено!")
+        print("Successfully saved!")
 
     elif choice == "2":
-        print("--- Твои расходы ---")
-        # 4. Напиши цикл for, чтобы вывести всё из history
-        for record in history:
-            print(record)
-
-    elif choice == "3":
-        print("Выход...")
-        break
-        
-         
+            print("\n--- YOUR EXPENSES ---")
+            total_sum = 0
+            for record in history:
+                # Считаем сумму (теперь ключ в кавычках)
+                total_sum += record['price']
+                # Выводим только товар
+                print(f"Item: {record['item']} | Price: {record['price']}")
+            
+            # Выводим ИТОГ один раз в самом конце
+            print("-" * 20)
+            print(f"TOTAL SPENT: {total_sum}")
