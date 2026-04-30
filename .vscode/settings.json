@@ -1,0 +1,6 @@
+{
+    "python.terminal.launchArgs": [],
+    "python.terminal.executeInFileDir": true,
+    "python.testing.cwd": "${fileDirname}",
+    "python.runSelectedTextInTerminal": true
+}
